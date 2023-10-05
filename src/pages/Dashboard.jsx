@@ -13,11 +13,8 @@ const Dashboard = () => {
         }}>
             <Grid item sm={6}>
                 <Typography variant="h3" gutterBottom>
-                    HailStopper
+                    HailStopper - Simulador
                 </Typography>
-            </Grid>
-            <Grid item sm={6}>
-                <Button variant="contained" onClick={() => navigate("/drones")}>Drones</Button>
             </Grid>
             <Grid item sm={6}>
                 <Button variant="contained" onClick={() => navigate("/weather")}>Servicio Meteorológico</Button>
