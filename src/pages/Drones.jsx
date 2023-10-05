@@ -12,19 +12,18 @@ const Drones = () => {
     const [drones, setDrones] = useState([]);
 
     useEffect(() => {
+        const getSync = async () => {
+            try {
+                await axios.get(`${process.env.REACT_APP_CONTROL_URL}/control/api/syncronize`);
+                sessionStorage.setItem("timeFrom", new Date().toDateString());
+                await getDrones();
+            } catch {
+                setError(true);
+                setSuccess(false);
+            }
+        }
         getSync();
     }, []);
-
-    const getSync = async () => {
-        try {
-            await axios.get(`${process.env.REACT_APP_CONTROL_URL}/control/api/syncronize`);
-            sessionStorage.setItem("timeFrom", new Date().toDateString());
-            await getDrones();
-        } catch {
-            setError(true);
-            setSuccess(false);
-        }
-    }
 
     const getDrones = async () => {
         try {
